@@ -1,0 +1,10 @@
+# Environment files
+.env
+.env.*
+
+# Sensitive files
+secrets/
+keys/
+config/credentials*
+appwrite.json
+firebase-keys.json
