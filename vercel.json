@@ -1,0 +1,15 @@
+{
+  "build": {
+    "env": {
+      "APPWRITE_ENDPOINT": "@appwrite_endpoint",
+      "APPWRITE_PROJECT_ID": "@appwrite_project_id",
+      "INFURA_PROJECT_ID": "@infura_project_id",
+      "TON_API_KEY": "@ton_api_key",
+      "FIREBASE_API_KEY": "@firebase_api_key",
+      "FIREBASE_PROJECT_ID": "@firebase_project_id"
+    }
+  },
+  "env": {
+    "NODE_ENV": "production"
+  }
+}
