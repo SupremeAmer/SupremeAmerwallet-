@@ -17,9 +17,15 @@ import { RootStackParamList } from '@types/types'; // Add proper typing
 // Create typed stack navigator
 const Stack = createStackNavigator<RootStackParamList>();
 
+// Update your App component
+import { User } from '@types/types';
+
 export default function App() {
   const [isLoading, setIsLoading] = useState(true);
-  const [user, setUser] = useState<any>(null); // Use proper user type instead of any
+  const [user, setUser] = useState<User | null>(null); // Use proper type
+
+  
+}
 
   useEffect(() => {
     const checkAuth = async () => {
