@@ -9,7 +9,7 @@
     "ios": "expo start --ios",
     "web": "expo start --web",
     "test": "jest",
-    "vercel-build": "npm install && next build"
+    "vercel-build": "npm install --legacy-peer-deps && next build"
   },
   "dependencies": {
     "@react-native-async-storage/async-storage": "^1.19.0",
@@ -22,8 +22,8 @@
     "ethers": "^6.10.0",
     "expo": "~50.0.0",
     "expo-secure-store": "~14.0.0",
-    "react": "18.2.0",
-    "react-dom": "^18.2.0",
+    "react": "18.3.1",
+    "react-dom": "18.3.1",
     "react-native": "0.73.0",
     "react-native-aes-crypto": "^2.3.0",
     "react-native-get-random-values": "^1.9.0",
@@ -40,5 +40,9 @@
   },
   "engines": {
     "node": ">=18.x"
+  },
+  "resolutions": {
+    "react": "18.3.1",
+    "react-dom": "18.3.1"
   }
 }
