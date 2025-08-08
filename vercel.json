@@ -1,24 +1,18 @@
 {
-  "build": {
-    "env": {
-      "APPWRITE_ENDPOINT": "@appwrite_endpoint",
-      "APPWRITE_PROJECT_ID": "@appwrite_project_id",
-      "INFURA_PROJECT_ID": "@infura_project_id",
-      "TON_API_KEY": "@ton_api_key",
-      "FIREBASE_API_KEY": "@firebase_api_key",
-      "FIREBASE_PROJECT_ID": "@firebase_project_id"
+  "builds": [
+    {
+      "src": "package.json",
+      "use": "@vercel/static-build"
     }
-  },
+  ],
   "routes": [
+    {
+      "src": "/_next/static/(.*)",
+      "dest": "/_next/static/$1"
+    },
     {
       "src": "/(.*)",
       "dest": "/"
-    }
-  ],
-  "rewrites": [
-    {
-      "source": "/(.*)",
-      "destination": "/"
     }
   ]
 }
