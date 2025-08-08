@@ -1,10 +1,9 @@
 import React, { useEffect, useState } from 'react';
-import { View, ActivityIndicator, StyleSheet } from 'react-native';
+import { ActivityIndicator, StyleSheet, View } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
-import { AppNavigator } from '@navigation/AppNavigator';
-import { AuthService } from '@services/authService';
 import { WalletProvider } from '@hooks/useWallet';
+import { AuthService } from '@services/authService';
 import CreateWalletScreen from '@screens/CreateWalletScreen';
 import ImportWalletScreen from '@screens/ImportWalletScreen';
 import HomeScreen from '@screens/HomeScreen';
@@ -12,12 +11,15 @@ import SendScreen from '@screens/SendScreen';
 import ReceiveScreen from '@screens/ReceiveScreen';
 import SettingsScreen from '@screens/SettingsScreen';
 import TokenManagementScreen from '@screens/TokenManagementScreen';
+import { AppNavigator } from '@navigation/AppNavigator'; // Make sure this exists
+import { RootStackParamList } from '@types/types'; // Add proper typing
 
-const Stack = createStackNavigator();
+// Create typed stack navigator
+const Stack = createStackNavigator<RootStackParamList>();
 
 export default function App() {
   const [isLoading, setIsLoading] = useState(true);
-  const [user, setUser] = useState(null);
+  const [user, setUser] = useState<any>(null); // Use proper user type instead of any
 
   useEffect(() => {
     const checkAuth = async () => {
@@ -48,16 +50,44 @@ export default function App() {
         <Stack.Navigator>
           {user ? (
             <>
-              <Stack.Screen name="Home" component={HomeScreen} options={{ headerShown: false }} />
-              <Stack.Screen name="Send" component={SendScreen} />
-              <Stack.Screen name="Receive" component={ReceiveScreen} />
-              <Stack.Screen name="Settings" component={SettingsScreen} />
-              <Stack.Screen name="TokenManagement" component={TokenManagementScreen} />
+              <Stack.Screen 
+                name="Home" 
+                component={HomeScreen} 
+                options={{ headerShown: false }} 
+              />
+              <Stack.Screen 
+                name="Send" 
+                component={SendScreen} 
+                options={{ title: 'Send Crypto' }} 
+              />
+              <Stack.Screen 
+                name="Receive" 
+                component={ReceiveScreen} 
+                options={{ title: 'Receive Crypto' }} 
+              />
+              <Stack.Screen 
+                name="Settings" 
+                component={SettingsScreen} 
+                options={{ title: 'Settings' }} 
+              />
+              <Stack.Screen 
+                name="TokenManagement" 
+                component={TokenManagementScreen} 
+                options={{ title: 'Manage Tokens' }} 
+              />
             </>
           ) : (
             <>
-              <Stack.Screen name="CreateWallet" component={CreateWalletScreen} options={{ title: 'Create Wallet' }} />
-              <Stack.Screen name="ImportWallet" component={ImportWalletScreen} options={{ title: 'Import Wallet' }} />
+              <Stack.Screen 
+                name="CreateWallet" 
+                component={CreateWalletScreen} 
+                options={{ title: 'Create Wallet' }} 
+              />
+              <Stack.Screen 
+                name="ImportWallet" 
+                component={ImportWalletScreen} 
+                options={{ title: 'Import Wallet' }} 
+              />
             </>
           )}
         </Stack.Navigator>
@@ -71,5 +101,6 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
+    backgroundColor: '#fff',
   },
 });
