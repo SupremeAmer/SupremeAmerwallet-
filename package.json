@@ -34,3 +34,11 @@
   },
   "private": true
 }
+
+"scripts": {
+  "dev": "next dev",
+  "build": "next build",
+  "start": "next start",
+  "lint": "next lint",
+  "vercel-build": "npm install && next build"
+}
