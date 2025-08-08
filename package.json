@@ -36,6 +36,9 @@
 }
 
 "scripts": {
+  "build": "expo build:web"
+}
+"scripts": {
   "dev": "next dev",
   "build": "next build",
   "start": "next start",
